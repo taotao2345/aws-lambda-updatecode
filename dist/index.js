@@ -51,23 +51,22 @@ var lambda_1 = __importDefault(require("aws-sdk/clients/lambda"));
 var fs_1 = __importDefault(require("fs"));
 function run() {
     return __awaiter(this, void 0, void 0, function () {
-        var region, accessKeyId, secretAccessKey, FunctionName, zipFile, publish, lambdaConfig, lambda, response, error_1;
+        var FunctionName, zipFile, publish, lambdaConfig, lambda, response, error_1;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
                     _a.trys.push([0, 4, , 5]);
-                    region = 'ap-northeast-1';
-                    accessKeyId = 'AKIAIZEF3MW6XZJD6JWQ';
-                    secretAccessKey = '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';
-                    FunctionName = 'generateImageHandler';
-                    zipFile = './lambda-generateImageHandler.zip';
-                    publish = true;
+                    FunctionName = core.getInput('function_name', { required: true });
+                    zipFile = core.getInput('zip_file', { required: true });
+                    publish = core.getInput('publish')
+                        ? Boolean(core.getInput('publish'))
+                        : false;
                     lambdaConfig = {
-                        accessKeyId: accessKeyId,
+                        accessKeyId: process.env.AWS_ACCESS_KEY_ID,
                         apiVersion: '2015-03-31',
                         maxRetries: 2,
-                        region: region,
-                        secretAccessKey: secretAccessKey,
+                        region: process.env.AWS_REGION,
+                        secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
                         sslEnabled: true,
                     };
                     lambda = new lambda_1.default(lambdaConfig);
