@@ -6,7 +6,7 @@ Run UpdateFunctionCode , PublishVersion
 
 ## Secret
 
-Add Secret before this action.
+Add Secret before this action. `Settings > Secrets > Add a new secret`
 
 - `AWS_REGION`
 - `AWS_ACCESS_KEY_ID`
