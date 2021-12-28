@@ -22,7 +22,7 @@
   "author": "taotao2345",
   "license": "MIT",
   "dependencies": {
-    "@actions/core": "^1.2.6",
+    "@actions/core": "^1.6.0",
     "aws-sdk": "^2.566.0"
   },
   "devDependencies": {
